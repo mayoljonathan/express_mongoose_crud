@@ -1,0 +1,13 @@
+{
+  "swaggerDefinition": {
+    "info": {
+      "title": "NodeExpress CRUD",
+      "version": "1.0.0",
+      "description": "Lorem ipsum",
+      "contact": {
+        "name": "Jonathan Jay Mayol"
+      }
+    }
+  },
+  "apis": ["./src/routes/*.js"]
+}
