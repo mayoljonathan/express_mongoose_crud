@@ -24,7 +24,9 @@ class PostRepository extends BaseRepository {
     return results
       .select('-__v')
       .populate('author', AUTHOR_PUBLIC_PROPS)
+      .populate('likes', AUTHOR_PUBLIC_PROPS)
       .populate('comments.author', AUTHOR_PUBLIC_PROPS)
+      .populate('comments.likes', AUTHOR_PUBLIC_PROPS)
       .exec();
   }
 
