@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/server.js",
+    "dev": "nodemon ./src/server.js",
     "test": "mocha test/**/*.js || exit 0",
     "find-circular": "madge ./src/ --circular || exit 0"
   },
