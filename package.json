@@ -2,7 +2,7 @@
   "name": "express_mongoose_crud",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "npm run start:prod",
     "start:dev": "set NODE_ENV=development&& nodemon ./src/server.js",
