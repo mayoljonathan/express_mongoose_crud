@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js",
+    "start:dev": "set NODE_ENV=development&& nodemon ./src/server.js",
+    "start:prod": "set NODE_ENV=production&& node ./src/server.js",
     "test": "mocha test/**/*.js || exit 0",
-    "find-circular": "madge ./src/ --circular || exit 0"
+    "test-circular": "madge ./src/ --circular || exit 0"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,7 @@ const startServer = async () => {
   try {
     await loaders.init(app);
 
-    app.listen(port, () => console.log(`Server running on ${port}!`));
+    app.listen(port, () => console.log(`Server [${process.env.NODE_ENV}] running on port ${port}!`));
   } catch (err) {
     console.log(`Server error: ${err}`);
     process.exit(1);
