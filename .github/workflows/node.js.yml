@@ -27,5 +27,4 @@ jobs:
     - run: npm install -g madge
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm run find-circular
     - run: npm test
