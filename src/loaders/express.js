@@ -5,6 +5,7 @@ const swaggerDocs = swaggerJsDoc(require('../config/swaggerOptions.json'));
 const { passport } = require('../config/passport');
 
 const api = require('../routes');
+const { ResponseHandler } = require('../utils/response_hander');
 
 module.exports = (expressApp) => {
   expressApp.use(express.json());
@@ -14,6 +15,10 @@ module.exports = (expressApp) => {
 
   expressApp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
   expressApp.use('/api/', api);
+
+  expressApp.use((req, res) => {
+    res.send(ResponseHandler.error('Invalid request. Please check the docs for information.'));
+  });
 
   return expressApp;
 };
