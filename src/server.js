@@ -1,7 +1,7 @@
-require('dotenv').config({ path: './src/config/.env' });
+require('dotenv').config({ path: `${__dirname}/config/.env` });
 
 const express = require('express');
-const loaders = require('./src/loaders');
+const loaders = require('./loaders');
 
 const startServer = async () => {
   const app = express();
