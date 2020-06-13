@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocs = swaggerJsDoc(require('../config/swaggerOptions.json'));
@@ -15,6 +16,8 @@ module.exports = (expressApp) => {
 
   expressApp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
   expressApp.use('/api/', api);
+
+  expressApp.use(cors());
 
   expressApp.use((req, res) => {
     res.send(ResponseHandler.error('Invalid request. Please check the docs for information.'));
