@@ -20,13 +20,13 @@ module.exports = (expressApp) => {
 
   expressApp.use(
     cors({
-      origin: (origin, cb) => {
-        if (whitelistedOrigins.indexOf(origin) === -1) {
-          const msg = 'The CORS policy for this site does not allow access from the specified origin.';
-          return cb(new Error(msg), false);
-        }
-        return cb(null, true);
-      },
+//       origin: (origin, cb) => {
+//         if (whitelistedOrigins.indexOf(origin) === -1) {
+//           const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+//           return cb(new Error(msg), false);
+//         }
+//         return cb(null, true);
+//       },
     })
   );
 
