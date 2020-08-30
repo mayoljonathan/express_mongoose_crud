@@ -1,11 +1,12 @@
 class ResponseHandler {
   // All went well, and (usually) some data was returned.
   static success(message, data = null) {
-    return {
-      status: 'SUCCESS',
-      message,
-      data,
-    };
+    // return {
+    //   status: 'SUCCESS',
+    //   message,
+    //   data,
+    // };
+    return data;
   }
 
   // There was a problem with the data submitted, or some pre-condition of the API call wasn't satisfied
