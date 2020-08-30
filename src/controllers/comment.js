@@ -19,9 +19,9 @@ class CommentController {
       res.send(ResponseHandler.success('Commented successfully!', result));
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.send(ResponseHandler.fail(null, err));
+        return res.status(400).send(ResponseHandler.fail(null, err));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -41,9 +41,9 @@ class CommentController {
       res.send(ResponseHandler.success('Your comment has been updated!'));
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.send(ResponseHandler.fail(null, err));
+        return res.status(400).send(ResponseHandler.fail(null, err));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -54,7 +54,7 @@ class CommentController {
 
       res.send(ResponseHandler.success('Your comment has been deleted!'));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 }

@@ -14,7 +14,7 @@ class UserController {
       if (err instanceof ValidationError) {
         return res.send(ResponseHandler.fail(null, err));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -30,7 +30,7 @@ class UserController {
       if (err instanceof NotFoundError) {
         return res.status(401).send(ResponseHandler.error(err.message));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
