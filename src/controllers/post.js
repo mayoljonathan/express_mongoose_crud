@@ -9,7 +9,7 @@ class PostController {
       const posts = await PostService.findAll();
       res.send(ResponseHandler.success(null, posts));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -18,7 +18,7 @@ class PostController {
       const post = await PostService.findById(req.params.id);
       res.send(ResponseHandler.success(null, post));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -35,9 +35,9 @@ class PostController {
       res.send(ResponseHandler.success('Posted successfully!', result));
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.send(ResponseHandler.fail(null, err));
+        return res.status(400).send(ResponseHandler.fail(null, err));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -51,9 +51,9 @@ class PostController {
       res.send(ResponseHandler.success('Your post has been updated!'));
     } catch (err) {
       if (err instanceof ValidationError) {
-        return res.send(ResponseHandler.fail(null, err));
+        return res.status(400).send(ResponseHandler.fail(null, err));
       }
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -64,7 +64,7 @@ class PostController {
 
       res.send(ResponseHandler.success('Your post has been deleted!'));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 }

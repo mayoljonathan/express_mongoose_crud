@@ -14,7 +14,7 @@ class LikeController {
 
       res.send(ResponseHandler.success(isSuccess ? 'Liked!' : 'No action happened.'));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 
@@ -30,7 +30,7 @@ class LikeController {
 
       res.send(ResponseHandler.success(isSuccess ? 'Unliked!' : 'No action happened.'));
     } catch (err) {
-      res.send(ResponseHandler.error(err.message, err));
+      res.status(500).send(ResponseHandler.error(err.message, err));
     }
   }
 }
